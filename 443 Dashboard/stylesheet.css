@@ -1,0 +1,33 @@
+body {
+    background-color: #238ace;
+}
+
+#left{
+    width: 100px;
+    height: 600px;
+    float: left;
+    background-color: #808080;
+    border-radius: 15px;
+    
+}
+
+#content{
+    width: 1125px;
+    height: 600px;
+    float:left;
+    background-color: #808080;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+
+#footer{
+    clear: both;
+    position: relative;
+    bottom: -10px;
+    border-radius: 15px;
+    height: 50px;
+    background-color: #808080;
+    text-align: center;
+    padding-top: 20px;
+
+}
