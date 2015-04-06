@@ -10,17 +10,18 @@ Public Class JSONTest
         Dim webClient As New System.Net.WebClient
         Dim jsonDB As New Dictionary(Of String, Object)
         Dim jsStream As String = webClient.DownloadString("http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/7.json?api-key=d657c0a64ae6788a338a7f090ec5d7cc:7:71710801")
+
         'Dim jsReader As StreamReader = New StreamReader(jsStream)
         'Dim jsonread As JsonTextReader = New JsonTextReader(jsReader)
         'Got to a point where I can seperate the different properties using the class below.. But I have not been able to manipulate the sub arrays such as 
         'results -> title, author, url. 
-        Dim obj As json_result
-        obj = JsonConvert.DeserializeObject(Of json_result)(jsStream)
+        Dim obj As NYTimes_json
+        obj = JsonConvert.DeserializeObject(Of NYTimes_json)(jsStream)
         lblTest.Text = obj.ToString()
     End Sub
 End Class
 
-Public Class json_result
+Public Class NYTimes_json
     Public Property status As String
     Public Property num_results As Integer
 
