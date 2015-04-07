@@ -41,10 +41,6 @@ Public Class NYTimes_json
 
         ' While x = 0 <> 15
 
-
-
-
-
         'url = resultsArr.Next.Item("url")
 
         ''url = resultsArr.First.Item("url")

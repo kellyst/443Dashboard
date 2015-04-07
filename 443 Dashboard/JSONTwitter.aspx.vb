@@ -42,9 +42,14 @@ Public Class JSONTwitter
         customRequest.Method = "POST"
         customRequest.Headers.Set("Authorization", "Basic " & b64String)
         Dim dstream As Stream = customRequest.GetRequestStream()
-        Dim response As WebResponse = customRequest.GetResponse()
-        Dim reader As StreamReader = New StreamReader(dstream)
-        Console.WriteLine(reader.ReadToEnd())
+        customRequest.GetResponse()
+        Dim response As WebResponse
+        'response.ContentLength = "29"
+        'response.ContentType = "application/x-www-form-urlencode;charset=UTF-8"
+        'response = customRequest.GetResponse()
+
+
+
 
 
 
