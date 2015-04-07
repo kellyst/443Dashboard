@@ -9,7 +9,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="left">
+    <div id="left" style="width: 225px; text-align: center;">
+    
+        <br />
+       
+
+        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Select Source"></asp:Label>
+         <br />
+        <asp:ImageButton ID="ImageButton1" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="5px" Height="75px" ImageUrl="~/Images/NYTimesLogo.jpg" Width="200px" />
+        <br />
+        <asp:ImageButton ID="ImageButton2" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="5px" Height="75px" ImageUrl="~/Images/facebookLogo.png" Width="200px" />
+        <br />
+        <asp:ImageButton ID="ImageButton3" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="5px" Height="75px" ImageUrl="~/Images/twitter_logo.jpg" Width="200px" />
     
     </div>
 

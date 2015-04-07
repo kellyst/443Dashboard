@@ -9,4 +9,7 @@
 
     End Sub
 
+    Protected Sub ImageButton2_Click(sender As Object, e As ImageClickEventArgs) Handles ImageButton2.Click
+
+    End Sub
 End Class
