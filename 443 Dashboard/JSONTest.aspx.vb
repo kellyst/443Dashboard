@@ -1,4 +1,5 @@
 ﻿Imports Newtonsoft.Json
+Imports Newtonsoft.Json.Linq
 Imports System.IO
 Imports Microsoft.AspNet.SignalR
 
@@ -15,14 +16,10 @@ Public Class JSONTest
         'Got to a point where I can seperate the different properties using the class below.. But I have not been able to manipulate the sub arrays such as 
         'results -> title, author, url. 
         obj = JsonConvert.DeserializeObject(Of NYTimes_json)(jsStream)
-        Dim newDiv As New System.Web.UI.HtmlControls.HtmlGenericControl()
-        newDiv.Attributes.Add("class", "holder")
-        newDiv.Attributes.Add("id", "test")
 
-        Dim s As String = obj.occupy()
+        obj.occupy()
 
-        newDiv.InnerHtml = "<b>" & s & "</b>"
-        Me.Controls.Add(newDiv)
+        
         ' LblInfo.Text = obj.author & " : " & obj.title & " : " & obj.abstract
     End Sub
 End Class
@@ -30,22 +27,42 @@ End Class
 Public Class NYTimes_json
 
     Public Function occupy() As String
-        Dim x As Integer
+        Dim x As Integer = 0
+        Dim listCollection As New List(Of Collection)
+        Dim infoCollection As New Collection
         Dim resultsArr As Newtonsoft.Json.Linq.JArray = results
-        While x = 0 <> 15
-            
-
-            url = resultsArr.First.Item("url")
-            title = resultsArr.First.Item("title")
-            author = resultsArr.First.Item("byline")
-            abstract = resultsArr.First.Item("abstract")
-
-            Return author
-
-        End While
+        Dim colle As JEnumerable(Of JToken) = resultsArr.Children()
+        Dim title, byline, abstract As JToken
+        Dim a As JToken = colle.Item("title")
 
 
-        Return 0
+
+
+
+        ' While x = 0 <> 15
+
+
+
+
+
+        'url = resultsArr.Next.Item("url")
+
+        ''url = resultsArr.First.Item("url")
+        'infoCollection.Add("url", url)
+        'title = resultsArr.First.Item("title")
+        'infoCollection.Add("title", title)
+        'author = resultsArr.First.Item("byline")
+        'infoCollection.Add("author", author) ' byline is author.. idk why
+        'abstract = resultsArr.First.Item("abstract")
+        'infoCollection.Add("abstract", abstract)
+
+        'listCollection.Add(infoCollection)
+        'infoCollection.Clear()
+
+        'End While
+
+
+        Return "bye"
     End Function
     Public Property status As String
     Public Property num_results As Integer
