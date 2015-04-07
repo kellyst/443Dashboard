@@ -14,7 +14,13 @@
     </div>
 
     <div id="content">
-
+        <div class="holder">
+            <div class="img">
+                <asp:Image ID="Image1" runat="server" />
+                
+            </div>
+            <asp:Label ID="lblInfo" runat="server" Text=""></asp:Label>
+        </div>
     </div>
 
     <div id="footer">

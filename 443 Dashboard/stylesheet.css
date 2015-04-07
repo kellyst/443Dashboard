@@ -31,3 +31,19 @@
     padding-top: 20px;
 
 }
+
+/*Trey edited here.. It's for the ny times selections*/
+.holder {
+height:15%;
+width:90%;
+margin-left:5%;
+background-color:grey;
+opacity:.75;
+}
+
+.img {
+float:left;
+width:10%;
+border: 2px solid black;
+height:75%;
+}
