@@ -11,6 +11,8 @@ Public Class JSONTest
         Dim jsonDB As New Dictionary(Of String, Object)
         Dim jsStream As String = webClient.DownloadString("http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/7.json?api-key=d657c0a64ae6788a338a7f090ec5d7cc:7:71710801")
 
+
+
         'Dim jsReader As StreamReader = New StreamReader(jsStream)
         'Dim jsonread As JsonTextReader = New JsonTextReader(jsReader)
         'Got to a point where I can seperate the different properties using the class below.. But I have not been able to manipulate the sub arrays such as 
