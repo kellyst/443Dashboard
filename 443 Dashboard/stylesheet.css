@@ -50,3 +50,22 @@ width:10%;
 border: 2px solid black;
 height:75%;
 }
+
+/* Steve added below this for fun */
+.imgButton {
+    border:solid;
+    border-color:black;
+    border-width:3px;
+    border-radius:15px;
+    margin-bottom:5px;
+}
+
+.headerTxt {
+    font-variant:small-caps;
+    font:bolder;
+    font-size:20pt;
+    stroke:ghostwhite;
+    stroke-opacity:75;
+    stroke-width:2px;
+    margin-bottom:10px;
+}

@@ -32,31 +32,31 @@ Partial Public Class _default
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ImageButton1 control.
+    '''iBtn_nyTimes control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ImageButton1 As Global.System.Web.UI.WebControls.ImageButton
+    Protected WithEvents iBtn_nyTimes As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
-    '''ImageButton2 control.
+    '''iBtn_facebook control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ImageButton2 As Global.System.Web.UI.WebControls.ImageButton
+    Protected WithEvents iBtn_facebook As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
-    '''ImageButton3 control.
+    '''iBtn_twitter control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ImageButton3 As Global.System.Web.UI.WebControls.ImageButton
+    Protected WithEvents iBtn_twitter As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
     '''Image1 control.

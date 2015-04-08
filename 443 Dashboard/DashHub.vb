@@ -4,19 +4,26 @@ Public Class DashHub
     Inherits Hub
 
     Dim com As Hub
+    Dim connection As IHubContext
+    Dim dash As DashHub
 
-    Public Sub Init()
+
+    Public Sub New()
+        dash = New DashHub()
+    End Sub
+
+    Public Sub New(ByVal hub As DashHub)
+        dash = hub
+    End Sub
+
+    Public Sub Switch(ByVal id As String)
+
 
     End Sub
 
-    Public Sub Switch(ByVal clicked As View)
-
-
-    End Sub
 
     Public Overrides Function OnConnected() As Threading.Tasks.Task
-
-
+        connection = GlobalHost.ConnectionManager.GetHubContext(Of DashHub)()
 
         Return MyBase.OnConnected()
     End Function

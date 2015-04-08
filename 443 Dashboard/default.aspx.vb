@@ -9,7 +9,15 @@
 
     End Sub
 
-    Protected Sub ImageButton2_Click(sender As Object, e As ImageClickEventArgs) Handles ImageButton2.Click
+    Protected Sub iBtn_nyTimes_Click(sender As Object, e As ImageClickEventArgs) Handles iBtn_nyTimes.Click
+        'Call NY Times API from hub/JSON here
+    End Sub
 
+    Protected Sub iBtn_facebook_Click(sender As Object, e As ImageClickEventArgs) Handles iBtn_facebook.Click
+        'Call Facebook API from hub/JSON here
+    End Sub
+
+    Protected Sub iBtn_twitter_Click(sender As Object, e As ImageClickEventArgs) Handles iBtn_twitter.Click
+        'Call Twitter API from hub/JSON here
     End Sub
 End Class

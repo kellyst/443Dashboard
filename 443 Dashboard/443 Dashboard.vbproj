@@ -107,7 +107,7 @@
   <ItemGroup>
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="default.aspx" />
-    <Content Include="Images\facebookLogo.png" />
+    <Content Include="Images\facebook-logo.jpg" />
     <Content Include="Images\NYTimesLogo.jpg" />
     <Content Include="Images\twitter_logo.jpg" />
     <Content Include="JSONTest.aspx" />
