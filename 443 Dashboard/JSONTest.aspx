@@ -3,7 +3,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+
+
+
+
+
+    <link type="text/css" rel="stylesheet" href="stylesheet.css?1234" />
     <title></title>
 </head>
 <body>
@@ -13,11 +18,7 @@
     </div>
 
     <div id="content">
-        <div class="holder">
-
-
-        </div>
-            
+        <asp:PlaceHolder ID="Pl1" runat="server"></asp:PlaceHolder>        
     </div>
         
         

@@ -18,6 +18,7 @@
     background-color: #808080;
     border-radius: 15px;
     margin-left: 20px;
+    overflow:auto;
 }
 
 #footer{
@@ -35,10 +36,12 @@
 /*Trey edited here.. It's for the ny times selections*/
 .holder {
 height:15%;
-width:90%;
-margin-left:5%;
+width:97%;
+margin-left:1.5%;
 background-color:grey;
-opacity:.75;
+opacity:.65;
+border-bottom:2px solid black;
+border-radius:15px;
 }
 
 .img {

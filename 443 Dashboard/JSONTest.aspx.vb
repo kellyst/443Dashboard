@@ -2,6 +2,7 @@
 Imports Newtonsoft.Json.Linq
 Imports System.IO
 Imports Microsoft.AspNet.SignalR
+Imports System.Web.UI.HtmlControls
 
 Public Class JSONTest
     Inherits System.Web.UI.Page
@@ -14,7 +15,9 @@ Public Class JSONTest
 
     Public Property published_date As JArray = New JArray()
     Public Property url As JArray = New JArray()
+    Public Property media As JArray = New JArray()
 
+    Public Property abstract As JArray = New JArray()
 
 
 
@@ -32,9 +35,9 @@ Public Class JSONTest
         obj = JsonConvert.DeserializeObject(Of NYTimes_json)(jsStream)
 
         Dim resultsArr As Newtonsoft.Json.Linq.JArray = obj.results
+        Dim imgArray As JArray = media
 
-
-        Dim urls, titles, bylines, dates, authors As JToken
+        Dim urls, titles, bylines, dates, abstracts, images, metadata As JToken
         Dim x As Integer = 0
 
         While x < 15
@@ -47,12 +50,26 @@ Public Class JSONTest
             byline.Add(bylines)
             dates = resultsArr.Item(x).Item("published_date")
             published_date.Add(dates)
+            abstracts = resultsArr.Item(x).Item("abstract")
+            abstract.Add(abstracts)
+            images = resultsArr.Item(x).Item("media")
+            media.Add("media")
+
+
+            Dim divControl As New HtmlGenericControl("div")
+            Dim pl As PlaceHolder = Me.FindControl("Pl1")
+
+            divControl.Attributes.Add("class", "holder")
+            divControl.InnerHtml = "<b><a href=" & url.Item(x).ToString() & ">" & title.Item(x).ToString() & "</a></b> <br> " & abstract.Item(x).ToString() & "<br> " & byline.Item(x).ToString() & "     Published: " & published_date.Item(x).ToString() & "<br>"
+
+            pl.Controls.Add(divControl)
 
             x += 1
-
         End While
 
-        Debug.Print(getInfo(3).Item("title") & " ::: " & getInfo(4).Item("title"))
+
+
+
 
 
         ' LblInfo.Text = obj.author & " : " & obj.title & " : " & obj.abstract
@@ -137,6 +154,8 @@ Public Class NYTimes_json
     Public Property url As Object
     Public Property id As Object
     Public Property abstract As Object
+
+    Public Property image As Object
 
 
 End Class
