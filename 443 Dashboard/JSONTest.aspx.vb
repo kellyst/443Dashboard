@@ -7,6 +7,20 @@ Public Class JSONTest
     Inherits System.Web.UI.Page
     Dim obj As NYTimes_json
 
+
+
+    Public Property title As JArray = New JArray()
+    Public Property byline As JArray = New JArray()
+
+    Public Property published_date As JArray = New JArray()
+    Public Property url As JArray = New JArray()
+
+
+
+
+
+
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim webClient As New System.Net.WebClient
         Dim jsonDB As New Dictionary(Of String, Object)
@@ -17,49 +31,104 @@ Public Class JSONTest
         'results -> title, author, url. 
         obj = JsonConvert.DeserializeObject(Of NYTimes_json)(jsStream)
 
-        obj.occupy()
+        Dim resultsArr As Newtonsoft.Json.Linq.JArray = obj.results
 
-        
+
+        Dim urls, titles, bylines, dates, authors As JToken
+        Dim x As Integer = 0
+
+        While x < 15
+
+            urls = resultsArr.Item(x).Item("url")
+            url.Add(urls)
+            titles = resultsArr.Item(x).Item("title")
+            title.Add(titles)
+            bylines = resultsArr.Item(x).Item("byline")
+            byline.Add(bylines)
+            dates = resultsArr.Item(x).Item("published_date")
+            published_date.Add(dates)
+
+            x += 1
+
+        End While
+
+        Debug.Print(getInfo(3).Item("title") & " ::: " & getInfo(4).Item("title"))
+
+
         ' LblInfo.Text = obj.author & " : " & obj.title & " : " & obj.abstract
     End Sub
+
+    Public Function getInfo(index As Integer) As Collection
+        Dim coll As Collection = New Collection()
+
+
+        coll.Add(url.Item(index), "url")
+        coll.Add(title.Item(index), "title")
+        coll.Add(byline.Item(index), "byline")
+        coll.Add(published_date.Item(index), "published_date")
+
+
+        Return coll
+    End Function
+
+
 End Class
 
+''' <summary>
+''' 
+''' </summary>
+''' <remarks></remarks>
 Public Class NYTimes_json
 
-    Public Function occupy() As String
-        Dim x As Integer = 0
-        Dim listCollection As New List(Of Collection)
-        Dim infoCollection As New Collection
-        Dim resultsArr As Newtonsoft.Json.Linq.JArray = results
-        Dim colle As JEnumerable(Of JToken) = resultsArr.Children()
-        Dim title, byline, abstract As JToken
-        Dim a As JToken = colle.Item("title")
+    '    Public Function occupy() As String
+    '        Dim x As Integer = 0
+    '        Dim listCollection As New List(Of Collection)
+    '        Dim infoCollection As New Collection
+    '        Dim resultsArr As Newtonsoft.Json.Linq.JArray = results
+    '        Dim colle As JEnumerable(Of JToken)
+    '        Dim title, byline, abstract, url, author As JArray
+    '        title = New JArray()
+
+    '        'Dim a As JToken = colle.Item("title")
+    '        Dim urls, titles, bylines, abstracts, authors As JToken
+    '        url = New JArray()
+    '        title = New JArray()
+    '        byline = New JArray()
+
+
+    '        urls = resultsArr.Item(x).Item("url")
+    '        url.Add(urls)
+    '        titles = resultsArr.Item(x).Item("title")
+    '        title.Add(titles)
+    '        bylines = resultsArr.Item(x).Item("byline")
+    '        byline.Add(bylines)
 
 
 
 
 
-        ' While x = 0 <> 15
 
-        'url = resultsArr.Next.Item("url")
+    '        ' While x = 0 <> 15
 
-        ''url = resultsArr.First.Item("url")
-        'infoCollection.Add("url", url)
-        'title = resultsArr.First.Item("title")
-        'infoCollection.Add("title", title)
-        'author = resultsArr.First.Item("byline")
-        'infoCollection.Add("author", author) ' byline is author.. idk why
-        'abstract = resultsArr.First.Item("abstract")
-        'infoCollection.Add("abstract", abstract)
+    '        'url = resultsArr.Next.Item("url")
 
-        'listCollection.Add(infoCollection)
-        'infoCollection.Clear()
+    '        ''url = resultsArr.First.Item("url")
+    '        'infoCollection.Add("url", url)
+    '        'title = resultsArr.First.Item("title")
+    '        'infoCollection.Add("title", title)
+    '        'author = resultsArr.First.Item("byline")
+    '        'infoCollection.Add("author", author) ' byline is author.. idk why
+    '        'abstract = resultsArr.First.Item("abstract")
+    '        'infoCollection.Add("abstract", abstract)
 
-        'End While
+    '        'listCollection.Add(infoCollection)
+    '        'infoCollection.Clear()
+
+    '        'End While
 
 
-        Return "bye"
-    End Function
+    '        Return "bye"
+    '    End Function
     Public Property status As String
     Public Property num_results As Integer
     Public Property results As Object
