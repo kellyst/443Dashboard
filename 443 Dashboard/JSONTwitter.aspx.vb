@@ -1,4 +1,5 @@
 ﻿Imports Newtonsoft.Json
+Imports LinqToTwitter
 Imports System.IO
 Imports Microsoft.AspNet.SignalR
 Imports System.Net
@@ -14,8 +15,7 @@ Public Class JSONTwitter
         Dim webClient As New System.Net.WebClient
         'Dim twitResource As String = webClient.DownloadString("https://userstream.twitter.com/1.1/user.json")
         'Dim oAuthResource As String = webClient.DownloadString("https://api.twitter.com/oauth/authenticate")
-        
-        tAuthenticate()
+
 
 
 
@@ -42,25 +42,65 @@ Public Class JSONTwitter
         customRequest.Method = "POST"
         customRequest.Headers.Set("Authorization", "Basic " & b64String)
         Dim dstream As Stream = customRequest.GetRequestStream()
-        customRequest.GetResponse()
-        Dim response As WebResponse
+        Dim resp As WebResponse = customRequest.GetResponse()
+
         'response.ContentLength = "29"
         'response.ContentType = "application/x-www-form-urlencode;charset=UTF-8"
         'response = customRequest.GetResponse()
 
-
-
-
-
-
-
-
-
-
-
         Return 0
 
     End Function
+
+    
+
+    Private Async Sub twitter(sender As Object, e As EventArgs) Handles Me.Load
+        Dim tContext As TwitterContext
+
+        Dim twAuth = New SingleUserAuthorizer() With { _
+          .CredentialStore = New SingleUserInMemoryCredentialStore() With { _
+             .ConsumerKey = ConfigurationManager.AppSettings("consumerKey"), _
+             .ConsumerSecret = ConfigurationManager.AppSettings("consumerSecret"), _
+             .AccessToken = ConfigurationManager.AppSettings("accessToken"), _
+             .AccessTokenSecret = ConfigurationManager.AppSettings("accessTokenSecret") _
+       } _
+    }
+
+
+        tContext = New TwitterContext(twAuth)
+        Dim user = New User()
+        Dim alltweets As New List(Of Status)
+        Dim tweets = (From tweet In tContext.Status Where tweet.Type = StatusType.Home And tweet.ExcludeReplies = True Select tweet).ToList()
+        Dim x As Integer = 0
+        If tweets.Count > 0 Then
+            alltweets.AddRange(tweets)
+
+        End If
+
+        For Each tweet In alltweets
+
+            Dim divControl As New HtmlGenericControl("div")
+            Dim pl As PlaceHolder = Me.FindControl("Pl1")
+
+            divControl.Attributes.Add("class", "holder")
+            divControl.InnerHtml = "<div class=""img""> <img src=" & tweet.User.ProfileImageUrl & "/> </div> <b>" & tweet.User.Name & "</b> --- " & tweet.Text & " <br>"
+            pl.Controls.Add(divControl)
+
+
+
+
+
+            Debug.WriteLine(tweet.User.Name & "(@" & tweet.User.ScreenNameList & ") " & " :: " & tweet.Text)
+
+        Next
+    End Sub
+
+    Public Function getTweetInfo(context As TwitterContext, id As Integer)
+        Dim user As Status
+
+
+    End Function
+
 
 
 End Class
