@@ -30,13 +30,9 @@
     </div>
 
     <div id="content">
-        <div class="holder">
-            <div class="img">
-                <asp:Image ID="Image1" runat="server" />
-                
-            </div>
-            <asp:Label ID="lblInfo" runat="server" Text=""></asp:Label>
-        </div>
+       
+                    <asp:PlaceHolder ID="Pl1" runat="server"></asp:PlaceHolder>        
+
     </div>
 
     <div id="footer">

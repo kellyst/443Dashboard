@@ -23,8 +23,11 @@ Public Class JSONTest
 
 
 
+    Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+
+
         Dim webClient As New System.Net.WebClient
         Dim jsonDB As New Dictionary(Of String, Object)
         Dim jsStream As String = webClient.DownloadString("http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/1.json?api-key=d657c0a64ae6788a338a7f090ec5d7cc:7:71710801")
@@ -39,6 +42,7 @@ Public Class JSONTest
 
         Dim urls, titles, bylines, dates, abstracts, images, metadata As JToken
         Dim x As Integer = 0
+        
 
         While x < 15
 
@@ -54,22 +58,18 @@ Public Class JSONTest
             abstract.Add(abstracts)
             images = resultsArr.Item(x).Item("media")
             media.Add("media")
-
-
             Dim divControl As New HtmlGenericControl("div")
-            Dim pl As PlaceHolder = Me.FindControl("Pl1")
+            Dim pl As PlaceHolder = Me.FindControl("place")
+
+
 
             divControl.Attributes.Add("class", "holder")
-            divControl.InnerHtml = "<b><a href=" & url.Item(x).ToString() & ">" & title.Item(x).ToString() & "</a></b> <br> " & abstract.Item(x).ToString() & "<br> " & byline.Item(x).ToString() & "     Published: " & published_date.Item(x).ToString() & "<br>"
+            divControl.InnerHtml = ControlChars.CrLf & " <b><a href=" & url.Item(x).ToString() & ">" & title.Item(x).ToString() & "</a></b> <br> " & abstract.Item(x).ToString() & "<br> " & byline.Item(x).ToString() & "     Published: " & published_date.Item(x).ToString() & "<br>"
 
             pl.Controls.Add(divControl)
 
             x += 1
         End While
-
-
-
-
 
 
         ' LblInfo.Text = obj.author & " : " & obj.title & " : " & obj.abstract
@@ -87,7 +87,6 @@ Public Class JSONTest
 
         Return coll
     End Function
-
 
 End Class
 

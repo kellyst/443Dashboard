@@ -23,11 +23,11 @@ Partial Public Class JSONTest
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''Pl1 control.
+    '''place control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Pl1 As Global.System.Web.UI.WebControls.PlaceHolder
+    Protected WithEvents place As Global.System.Web.UI.WebControls.PlaceHolder
 End Class

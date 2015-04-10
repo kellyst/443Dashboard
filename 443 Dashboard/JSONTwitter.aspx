@@ -4,19 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <script type ="text/javascript" src="stylesheet.css" > </script>
+    <script type ="text/javascript" src="stylesheet.css?1234" > </script>
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
+    <div id ="left">
+    </div>
+
          <div id="content">
-        <asp:PlaceHolder ID="Pl1" runat="server"></asp:PlaceHolder>        
+        <asp:PlaceHolder ID="place" runat="server"></asp:PlaceHolder>        
     </div>
 
 
-    </div>
+    
     </form>
 </body>
 </html>

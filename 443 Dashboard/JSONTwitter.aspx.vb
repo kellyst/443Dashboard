@@ -11,14 +11,10 @@ Public Class JSONTwitter
     'Dim consumer As String = "xvz1evFS4wEEPTGEFPHBog"
     'Dim cSecret As String = "L8qq9PZyRg6ieKGEKhZolGC0vJWLw8iEJ88DRdyOg"
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Public Sub New()
         Dim webClient As New System.Net.WebClient
         'Dim twitResource As String = webClient.DownloadString("https://userstream.twitter.com/1.1/user.json")
         'Dim oAuthResource As String = webClient.DownloadString("https://api.twitter.com/oauth/authenticate")
-
-
-
-
 
     End Sub
 
@@ -80,17 +76,11 @@ Public Class JSONTwitter
         For Each tweet In alltweets
 
             Dim divControl As New HtmlGenericControl("div")
-            Dim pl As PlaceHolder = Me.FindControl("Pl1")
+            Dim pl As PlaceHolder = Me.FindControl("place")
 
             divControl.Attributes.Add("class", "holder")
-            divControl.InnerHtml = "<div class=""img""> <img src=" & tweet.User.ProfileImageUrl & "/> </div> <b>" & tweet.User.Name & "</b> --- " & tweet.Text & " <br>"
+            divControl.InnerHtml = "<br> <b>" & tweet.User.Name & "</b> --- " & tweet.Text & " <br>" & ControlChars.CrLf
             pl.Controls.Add(divControl)
-
-
-
-
-
-            Debug.WriteLine(tweet.User.Name & "(@" & tweet.User.ScreenNameList & ") " & " :: " & tweet.Text)
 
         Next
     End Sub
