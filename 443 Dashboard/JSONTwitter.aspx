@@ -4,7 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <script type ="text/javascript" src="stylesheet.css?1234" > </script>
+  <link type="text/css" rel="stylesheet" href="stylesheet.css?1234" />
+
+
     <title></title>
 </head>
 <body>

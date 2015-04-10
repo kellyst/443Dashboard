@@ -79,8 +79,14 @@ Public Class JSONTwitter
             Dim pl As PlaceHolder = Me.FindControl("place")
 
             divControl.Attributes.Add("class", "holder")
-            divControl.InnerHtml = "<br> <b>" & tweet.User.Name & "</b> --- " & tweet.Text & " <br>" & ControlChars.CrLf
+            divControl.InnerHtml = "<div class=""img""><img src=""" & tweet.User.ProfileImageUrl & """ /></div> <br> <b>" & tweet.User.Name & "</b> --- " & tweet.Text & " <br>" & ControlChars.CrLf
             pl.Controls.Add(divControl)
+
+
+
+
+
+            Debug.WriteLine(tweet.User.Name & "(@" & tweet.User.ScreenNameList & ") " & " :: " & tweet.Text)
 
         Next
     End Sub

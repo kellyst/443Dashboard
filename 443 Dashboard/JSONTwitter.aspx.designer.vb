@@ -23,7 +23,7 @@ Partial Public Class JSONTwitter
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''Pl1 control.
+    '''place control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
