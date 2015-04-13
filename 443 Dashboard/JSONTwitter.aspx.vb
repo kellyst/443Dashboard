@@ -49,9 +49,23 @@ Public Class JSONTwitter
     End Function
 
     
+    Public Sub userAuth()
+   
+        Dim connect As PinAuthorizer = New PinAuthorizer()
+        Dim auth As XAuthCredentials = New InMemoryCredentialStore
 
-    Private Async Sub twitter(sender As Object, e As EventArgs) Handles Me.Load
+        connect.CredentialStore = auth
+        connect.GoToTwitterAuthorization = Function(pageLink) Process.Start(pageLink)
+        connect.AuthorizeAsync()
+
+
+    End Sub
+
+
+    Public Async Sub twitter(sender As Object, e As EventArgs) Handles Me.Load
         Dim tContext As TwitterContext
+
+
 
         Dim twAuth = New SingleUserAuthorizer() With { _
           .CredentialStore = New SingleUserInMemoryCredentialStore() With { _
@@ -64,9 +78,10 @@ Public Class JSONTwitter
 
 
         tContext = New TwitterContext(twAuth)
-        Dim user = New User()
+
+
         Dim alltweets As New List(Of Status)
-        Dim tweets = (From tweet In tContext.Status Where tweet.Type = StatusType.Home And tweet.ExcludeReplies = True Select tweet).ToList()
+        Dim tweets = (From tweet In tContext.Status Where tweet.Type = StatusType.Home Select tweet).ToList()
         Dim x As Integer = 0
         If tweets.Count > 0 Then
             alltweets.AddRange(tweets)
@@ -76,10 +91,11 @@ Public Class JSONTwitter
         For Each tweet In alltweets
 
             Dim divControl As New HtmlGenericControl("div")
-            Dim pl As PlaceHolder = Me.FindControl("place")
+            Dim pl As PlaceHolder = New PlaceHolder()
+            pl = MyBase.FindControl("place")
 
             divControl.Attributes.Add("class", "holder")
-            divControl.InnerHtml = "<div class=""img""><img src=""" & tweet.User.ProfileImageUrl & """ /></div> <br> <b>" & tweet.User.Name & "</b> --- " & tweet.Text & " <br>" & ControlChars.CrLf
+            divControl.InnerHtml = "<div class=""img""><img width=""100%"" height=""100%"" src=""" & tweet.User.ProfileImageUrl & """ /></div> <br> <b>" & tweet.User.Name & "</b>  <br> " & tweet.Text & " <br>" & ControlChars.CrLf
             pl.Controls.Add(divControl)
 
 
@@ -90,12 +106,6 @@ Public Class JSONTwitter
 
         Next
     End Sub
-
-    Public Function getTweetInfo(context As TwitterContext, id As Integer)
-        Dim user As Status
-
-
-    End Function
 
 
 

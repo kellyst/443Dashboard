@@ -39,17 +39,20 @@ height:15%;
 width:97%;
 margin-left:1.5%;
 background-color:grey;
-opacity:.65;
-border-bottom:2px solid black;
+border:2px solid black;
 border-radius:15px;
+margin-top:1%;
+margin-bottom:1%;
 }
 
 .img {
+margin:1%;
 float:left;
 width:10%;
 border: 2px solid black;
 height:75%;
-opacity:.100;
+border-radius:15px;
+
 }
 
 /* Steve added below this for fun */

@@ -8,8 +8,6 @@ Public Class JSONTest
     Inherits System.Web.UI.Page
     Dim obj As NYTimes_json
 
-
-
     Public Property title As JArray = New JArray()
     Public Property byline As JArray = New JArray()
 
@@ -23,7 +21,7 @@ Public Class JSONTest
 
 
 
-    Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Public Sub New()
 
 
 
@@ -42,7 +40,7 @@ Public Class JSONTest
 
         Dim urls, titles, bylines, dates, abstracts, images, metadata As JToken
         Dim x As Integer = 0
-        
+
 
         While x < 15
 
@@ -59,8 +57,8 @@ Public Class JSONTest
             images = resultsArr.Item(x).Item("media")
             media.Add("media")
             Dim divControl As New HtmlGenericControl("div")
-            Dim pl As PlaceHolder = Me.FindControl("place")
-
+            Dim pl As PlaceHolder = New PlaceHolder()
+            pl = Me.FindControl("place")
 
 
             divControl.Attributes.Add("class", "holder")

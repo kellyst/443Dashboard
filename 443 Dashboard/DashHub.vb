@@ -21,13 +21,6 @@ Public Class DashHub
 
     End Sub
 
-    Public Function logC() As String
-
-
-        Return ":-:_:" & connection.ToString()
-    End Function
-
-
     Public Overrides Function OnConnected() As Threading.Tasks.Task
         connection = GlobalHost.ConnectionManager.GetHubContext(Of DashHub)()
 

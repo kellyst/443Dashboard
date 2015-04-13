@@ -142,6 +142,7 @@
     <Content Include="Images\twitter_logo.jpg" />
     <Content Include="JSONTest.aspx" />
     <Content Include="JSONTwitter.aspx" />
+    <Content Include="OAuth.aspx" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.js" />
@@ -194,6 +195,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="OAuth.aspx.designer.vb">
+      <DependentUpon>OAuth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OAuth.aspx.vb">
+      <DependentUpon>OAuth.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="startup.vb" />
   </ItemGroup>

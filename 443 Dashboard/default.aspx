@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="default.aspx.vb" Inherits="_443_Dashboard._default" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" Async="true" CodeBehind="default.aspx.vb" Inherits="_443_Dashboard._default" %>
 
 <!DOCTYPE html>
 
@@ -31,7 +31,7 @@
 
     <div id="content">
        
-                    <asp:PlaceHolder ID="Pl1" runat="server"></asp:PlaceHolder>        
+                    <asp:PlaceHolder ID="place" runat="server"></asp:PlaceHolder>        
 
     </div>
 

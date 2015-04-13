@@ -59,11 +59,11 @@ Partial Public Class _default
     Protected WithEvents iBtn_twitter As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
-    '''Pl1 control.
+    '''place control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Pl1 As Global.System.Web.UI.WebControls.PlaceHolder
+    Protected WithEvents place As Global.System.Web.UI.WebControls.PlaceHolder
 End Class
